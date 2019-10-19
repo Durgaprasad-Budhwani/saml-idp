@@ -63,7 +63,7 @@
       <h3 class="panel-title"><i class="fa fa-code"><span>SAML Assertion</span></i></h3>
     </div>
     <div class="panel-body">
-      <form action="{{paths.SIGN_IN}}" class="form-horizontal form-profile" method="post" role="form">
+      <form action="{{baseUrl}}{{paths.SIGN_IN}}" class="form-horizontal form-profile" method="post" role="form">
         <div class='form-profile-attributes'>
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -232,7 +232,7 @@ $(document).ready(function() {
 
   $('#btn-sign-out').click(function(e) {
     e.preventDefault();
-    window.location.href = '{{paths.SIGN_OUT}}';
+    window.location.href = '{{baseUrl}}{{paths.SIGN_OUT}}';
   });
 
    $('#modal-attribute .btn-primary').click(function(e) {
@@ -242,7 +242,7 @@ $(document).ready(function() {
      if ($form.valid()) {
        $.ajax({
          type: "POST",
-         url: '{{paths.METADATA}}',
+         url: '{{baseUrl}}{{paths.METADATA}}',
          data: $("#modal-attribute form").serialize(),
          success: function() {
            $('#modal-attribute').modal('hide');
